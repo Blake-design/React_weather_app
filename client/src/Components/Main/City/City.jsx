@@ -1,58 +1,8 @@
 import React from "react";
 import { MinMax } from "../../index";
-
 import { getTimeandDay } from "../../../utils/time";
-
-import {
-  makeStyles,
-  Typography,
-  Container,
-  Box,
-  Grid,
-} from "@material-ui/core";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
-    maxWidth: "100%",
-    marginTop: "1rem",
-    marginLeft: "1rem",
-    marginRight: "1rem",
-    background: "rgba(242, 242,242,80%)",
-    padding: ".5rem",
-    borderRadius: "10px",
-  },
-  city: {
-    display: "flex",
-    flexFlow: "row nowrap",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    maxWidth: "100%",
-
-    gap: "2rem",
-  },
-  frost: {
-    color: "#4ccbec",
-  },
-  cool: {
-    color: "#4cecbd",
-  },
-  warm: {
-    color: "#f29881",
-  },
-  hot: {
-    color: "#ec1d4c",
-  },
-  minMaxBox: {
-    display: "flex",
-    flexFlow: "row nowrap",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    maxWidth: "100%",
-    gap: "2rem",
-  },
-}));
+import { Typography, Box, Grid } from "@material-ui/core";
+import { useStyles } from "./cityStyles";
 
 const City = ({ weather, location }) => {
   const classes = useStyles();

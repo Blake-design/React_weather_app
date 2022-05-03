@@ -1,36 +1,19 @@
 import React, { useState, useEffect } from "react";
-
-import { Header } from "./";
-import { SideBar } from "./SideBar";
-import { Main } from "./Main";
-import { fetchWeather, fetchLocalData, fetchPhoto } from "../api";
+import { Header, Footer } from "../index";
+import { SideBar } from "../SideBar";
+import { Main } from "../Main";
+import { fetchWeather, fetchLocalData, fetchPhoto } from "../../api";
 import {
-  makeStyles,
+  Container,
   Paper,
   Grid,
   CircularProgress,
   Backdrop,
 } from "@material-ui/core";
+import { useStyles } from "./homeStyles";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    justifyContent: "center",
-    backgroundColor: "#effafc",
-  },
-  paper: {
-    padding: theme.spacing(3),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-  },
-  backdrop: {
-    zIndex: theme.zIndex.drawer + 1,
-    color: "#fff",
-  },
-}));
-
-function Home() {
+const Home = () => {
   const classes = useStyles();
-
   const [weather, setWeather] = useState({});
   const [loading, setLoading] = useState(true);
   const [location, setLocation] = useState("San Antonio, TX, USA");
@@ -60,7 +43,6 @@ function Home() {
     localStorage.setItem("cities", JSON.stringify(cities));
   }, [cities]);
 
-  console.log(photoData);
   const search = async (e, query, setQuery) => {
     e.preventDefault();
     const localData = await fetchLocalData(query, setGeo);
@@ -110,27 +92,36 @@ function Home() {
     );
   } else
     return (
-      <Grid container spacing={2} className={classes.root}>
-        <Grid item xs={12}>
-          <Header title={"Weather-React"} />
+      <Container className={classes.root}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} component="header">
+            <Header title={"Weather App"} />
+          </Grid>
+          <Grid item xs={12} md={3} component="aside">
+            <Paper className={classes.paper}>
+              <SideBar
+                handleSubmit={search}
+                removeCity={removeCity}
+                reloadCity={reloadCity}
+                cities={cities}
+              />
+            </Paper>
+          </Grid>
+          <Grid item xs={12} md={9} component="main">
+            <Paper className={classes.paper}>
+              <Main
+                weather={weather}
+                location={location}
+                photoData={photoData}
+              />
+            </Paper>
+          </Grid>
+          <Grid item xs={12}>
+            <Footer />
+          </Grid>
         </Grid>
-        <Grid item xs={12} md={3}>
-          <Paper className={classes.paper}>
-            <SideBar
-              handleSubmit={search}
-              removeCity={removeCity}
-              reloadCity={reloadCity}
-              cities={cities}
-            />
-          </Paper>
-        </Grid>
-        <Grid item xs={12} md={9}>
-          <Paper className={classes.paper}>
-            <Main weather={weather} location={location} photoData={photoData} />
-          </Paper>
-        </Grid>
-      </Grid>
+      </Container>
     );
-}
+};
 
 export default Home;

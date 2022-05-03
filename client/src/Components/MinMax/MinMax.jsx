@@ -1,21 +1,6 @@
 import React from "react";
-
-import { makeStyles, Typography, Box } from "@material-ui/core";
-
-const useStyles = makeStyles((theme) => ({
-  box: {
-    display: "flex",
-    justifyContent: "center",
-    alignContent: "center",
-    gap: "1rem",
-  },
-  cold: {
-    color: "#4ccbec",
-  },
-  hot: {
-    color: "#ec1d4c",
-  },
-}));
+import { useStyles } from "./minMaxStyle";
+import { Typography, Box } from "@material-ui/core";
 
 const MinMax = ({ min, max }) => {
   const classes = useStyles();

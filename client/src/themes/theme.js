@@ -1,6 +1,6 @@
-import { createTheme } from "@material-ui/core";
+import { createTheme } from "@mui/material/styles";
 
-export const theme = createTheme({
+const baseTheme = createTheme({
   typography: {
     fontSize: 14,
     button: {
@@ -9,15 +9,40 @@ export const theme = createTheme({
       fontWeight: "bold",
     },
   },
-  overrides: {
-    MuiInput: {
-      input: {
-        fontWeight: "bold",
-      },
+});
+
+const lightTheme = createTheme({
+  ...baseTheme,
+
+  palette: {
+    mode: "light",
+
+    paper: "#ffffff",
+    overlay: "rgba(255, 255, 255, .85)",
+    sky: "#9adafc",
+
+    background: "#effafc",
+    text: {
+      link: "blue",
     },
   },
+});
+
+const darkTheme = createTheme({
+  ...baseTheme,
   palette: {
-    primary: { main: "#3A8DFF" },
-    secondary: { main: "#B0B0B0" },
+    mode: "dark",
+
+    background: "#001324",
+
+    paper: "#424242",
+    overlay: "rgba(66, 66, 66, 0.85)",
+    sky: "#0a1b45",
+
+    text: {
+      link: "#d8c353",
+    },
   },
 });
+
+export { darkTheme, lightTheme };

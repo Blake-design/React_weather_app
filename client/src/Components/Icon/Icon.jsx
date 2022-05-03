@@ -1,17 +1,6 @@
 import React from "react";
 import { makeStyles, Box, Typography } from "@material-ui/core";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    flexFlow: "column nowrap",
-    justifyContent: "flex-start",
-    alignItems: "center",
-  },
-  desc: {
-    height: "3rem",
-  },
-}));
+import { useStyles } from "./iconStyle";
 
 const Icon = ({ icon, description }) => {
   const classes = useStyles();

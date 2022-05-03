@@ -1,14 +1,6 @@
 import React, { useState } from "react";
-import { makeStyles, TextField } from "@material-ui/core/";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    "& > *": {
-      margin: theme.spacing(1),
-      width: "80%",
-    },
-  },
-}));
+import { TextField } from "@material-ui/core/";
+import { useStyles } from "./searchBarStyle";
 
 const SearchBar = ({ handleSubmit }) => {
   const classes = useStyles();

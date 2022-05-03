@@ -1,7 +1,6 @@
 import React from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
 import {
-  makeStyles,
   Grid,
   Box,
   IconButton,
@@ -10,14 +9,7 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@material-ui/core/";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: "100%",
-    maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
-  },
-}));
+import { useStyles } from "./cityListStyle";
 
 const CityList = ({ cities, removeCity, reloadCity }) => {
   const classes = useStyles();
@@ -34,6 +26,7 @@ const CityList = ({ cities, removeCity, reloadCity }) => {
               >
                 <ListItem>
                   <ListItemText
+                    component="li"
                     onClick={() => reloadCity(city)}
                     primary={city.name}
                   ></ListItemText>
@@ -42,6 +35,7 @@ const CityList = ({ cities, removeCity, reloadCity }) => {
                     <IconButton
                       aria-label="delete"
                       onClick={() => removeCity(city.name)}
+                      color={"secondary"}
                     >
                       <DeleteIcon />
                     </IconButton>

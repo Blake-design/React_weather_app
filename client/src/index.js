@@ -2,10 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-
+import { DarkModeState } from "./themes/themeHandler";
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <DarkModeState>
+      <App />
+    </DarkModeState>
   </React.StrictMode>,
   document.getElementById("root")
 );
