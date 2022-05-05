@@ -3,6 +3,7 @@ import { Header, Footer } from "../index";
 import { SideBar } from "../SideBar";
 import { Main } from "../Main";
 import { fetchWeather, fetchLocalData, fetchPhoto } from "../../api";
+
 import {
   Container,
   Paper,
@@ -16,42 +17,53 @@ const Home = () => {
   const classes = useStyles();
   const [weather, setWeather] = useState({});
   const [loading, setLoading] = useState(true);
-  const [location, setLocation] = useState("San Antonio, TX, USA");
+  const [location, setLocation] = useState(
+    JSON.parse(localStorage.getItem("last-location")) || "San Antonio, TX, USA"
+  );
   const [photoData, setPhotoData] = useState({});
-  const [geo, setGeo] = useState({
-    lat: 29.4246002,
-    lon: -98.4951405,
-  });
-  const [cities, setCities] = useState([
-    {
-      name: "San Antonio, TX, USA",
-      lat: geo.lat,
-      lon: geo.lon,
-    },
-  ]);
+  const [geo, setGeo] = useState(
+    JSON.parse(localStorage.getItem("last-geo")) || {
+      lat: 29.4246002,
+      lon: -98.4951405,
+    }
+  );
+  const [cities, setCities] = useState(
+    JSON.parse(localStorage.getItem("cities")) || [
+      {
+        name: "San Antonio, TX, USA",
+        lat: 29.4246002,
+        lon: -98.4951405,
+      },
+    ]
+  );
 
   useEffect(() => {
+    console.log("useEffect  2");
+
     fetchWeather(geo, setWeather, setLoading);
-    const storage = localStorage.getItem("cities");
-    if (storage) {
-      setCities(JSON.parse(storage));
-    }
-    fetchPhoto(location, setPhotoData);
+    localStorage.setItem("last-geo", JSON.stringify(geo));
   }, [geo]);
 
   useEffect(() => {
+    console.log("useEffect  3");
+    fetchPhoto(location, setPhotoData);
+    localStorage.setItem("last-location", JSON.stringify(location));
+  }, [location]);
+
+  useEffect(() => {
+    console.log("useEffect  4");
     localStorage.setItem("cities", JSON.stringify(cities));
   }, [cities]);
 
   const search = async (e, query, setQuery) => {
+    console.log("search function ");
     e.preventDefault();
-    const localData = await fetchLocalData(query, setGeo);
+    const localData = await fetchLocalData(query);
     let {
       formatted_address,
       geometry: {
         location: { lat, lng },
       },
-      photos,
     } = localData;
     setLocation(formatted_address);
     setCities((prev) => [
@@ -60,7 +72,6 @@ const Home = () => {
         name: formatted_address,
         lat: lat,
         lon: lng,
-        photos: photos[0].photo_reference,
       },
     ]);
     setQuery("");
@@ -72,6 +83,7 @@ const Home = () => {
   };
 
   const removeCity = (targetCity) => {
+    console.log("remove function ");
     const editedCities = cities.filter((object) => {
       return object.name !== targetCity;
     });
@@ -80,10 +92,11 @@ const Home = () => {
   };
 
   const reloadCity = async (targetCity) => {
+    console.log("reload function ");
     setGeo({ lat: targetCity.lat, lon: targetCity.lon });
     setLocation(targetCity.name);
   };
-
+  console.log("render");
   if (loading) {
     return (
       <Backdrop open={true} className={classes.backdrop}>

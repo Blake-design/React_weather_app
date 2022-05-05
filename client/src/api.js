@@ -20,7 +20,7 @@ const fetchWeather = async (geo, setWeather, setLoading) => {
 /// This will transfer data to our server so that we can make a call to google places
 //  * I used this API instead of open weather for geo service because I like the formatted addresses better * //
 
-const fetchLocalData = async (query, setGeo) => {
+const fetchLocalData = async (query) => {
   try {
     const res = await axios.get(`/api/locationData?city=${query}`);
     const data = await res.data;

@@ -1,7 +1,7 @@
 {
   "name": "react_weather_app",
   "version": "1.0.0",
-  "description": "MERN Fullstack Weather App",
+  "description": "Fullstack Weather App",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
