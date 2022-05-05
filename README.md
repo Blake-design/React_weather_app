@@ -224,9 +224,11 @@ This componenet allows us to compartmentalize the code and again wrap the applic
 
 ### Local Storage
 
-This application utilizes local storage to save cities and theme preference for later reference.
+This application utilizes local storage to save searched cities and a theme preference for later reference.
 
-If it is the users first visit the theme prefence will be set to light and the
+If it is the users first visit the theme preference will be set to "light" and the first city Searched is "San Antonio, TX" (my hometown).
+
+On subsequent visits the app will display the current temp of the last searched location.
 
 <p style= "text-align:right">(<a href="#top">back to top</a>)</p>
 
