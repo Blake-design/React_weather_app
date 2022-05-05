@@ -6,5 +6,9 @@ export const useStyles = makeStyles((theme) => ({
     maxWidth: 360,
     backgroundColor: theme.palette.paper,
     color: theme.palette.text.primary,
+    cursor: "pointer",
+    "&:hover >*": {
+      color: theme.palette.text.secondary,
+    },
   },
 }));
