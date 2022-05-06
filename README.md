@@ -7,7 +7,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div style= "text-align:center">
-
+![weather-app-light-dark](https://user-images.githubusercontent.com/64717707/167050602-beb90f10-ccf7-408b-a0c9-6632478c20ef.jpg)
 <h3 style= "text-align:center">React Weather App</h3>
 
   <p style= "align:center">
@@ -254,4 +254,4 @@ Project Link: [https://github.com/Blake-design/React_weather_app](https://github
 [license-url]: https://github.com/Blake-design/React_weather_app/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/blake-mccarty-75754a36
-[product-screenshot]: images/screenshot.png
+
