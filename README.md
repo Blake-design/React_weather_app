@@ -53,7 +53,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://user-images.githubusercontent.com/64717707/167050602-beb90f10-ccf7-408b-a0c9-6632478c20ef.jpg)
 
 We are all familiar with the ubiquitous weather app, the classic application used to showcase your ability to work with 3rd party APIs. Although, when only using front-end technologies you run the risk exposing your API keys. This app utitilizes server-side API calls to properly conceal your keys.
 
