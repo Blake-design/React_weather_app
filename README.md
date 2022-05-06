@@ -13,10 +13,10 @@
   <p style= "align:center">
     A weather app built using React, Express, Node, Material UI, and third party APIs!
     <br />
-    <a href="https://github.com/Blake-design/React_weather_app"><strong>Explore the Website »</strong></a>
+    <a href="https://may5-react-weather.herokuapp.com/"><strong>Explore the Website »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/Blake-design/React_weather_app">View App</a>
+    <a href="https://github.com/Blake-design/React_weather_app">Read Code</a>
     ·
     <a href="https://github.com/Blake-design/React_weather_app/issues">Report Bug</a>
     ·
