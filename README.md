@@ -13,7 +13,7 @@
   <p style= "align:center">
     A weather app built using React, Express, Node, Material UI, and third party APIs!
     <br />
-    <a href="https://github.com/Blake-design/React_weather_app"><strong>Explore the code »</strong></a>
+    <a href="https://github.com/Blake-design/React_weather_app"><strong>Explore the Website »</strong></a>
     <br />
     <br />
     <a href="https://github.com/Blake-design/React_weather_app">View App</a>
@@ -254,4 +254,4 @@ Project Link: [https://github.com/Blake-design/React_weather_app](https://github
 [license-url]: https://github.com/Blake-design/React_weather_app/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/blake-mccarty-75754a36
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: https://user-images.githubusercontent.com/64717707/167050602-beb90f10-ccf7-408b-a0c9-6632478c20ef.jpg
