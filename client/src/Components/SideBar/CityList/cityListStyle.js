@@ -4,7 +4,7 @@ export const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
     maxWidth: 360,
-    backgroundColor: theme.palette.paper,
+    backgroundColor: theme.palette.sidebar,
     color: theme.palette.text.primary,
     cursor: "pointer",
     "&:hover >*": {

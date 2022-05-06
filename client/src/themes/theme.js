@@ -16,11 +16,11 @@ const lightTheme = createTheme({
 
   palette: {
     mode: "light",
-
+    sidebar: "#d8dfe4",
     paper: "#ffffff",
     overlay: "rgba(255, 255, 255, .85)",
-    sky: "#9adafc",
-
+    hour: "#96d2f6",
+    week: "#b9e3fd",
     background: "#effafc",
     text: {
       link: "blue",
@@ -34,11 +34,11 @@ const darkTheme = createTheme({
     mode: "dark",
 
     background: "#001324",
-
+    sidebar: "#636d75",
     paper: "#424242",
     overlay: "rgba(66, 66, 66, 0.85)",
-    sky: "#0a1b45",
-
+    hour: "#0a1b45",
+    week: "#3b425d",
     text: {
       link: "#d8c353",
     },

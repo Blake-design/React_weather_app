@@ -111,7 +111,7 @@ const Home = () => {
             <Header title={"Weather App"} />
           </Grid>
           <Grid item xs={12} md={3} component="aside">
-            <Paper className={classes.paper}>
+            <Paper className={classes.sidebar}>
               <SideBar
                 handleSubmit={search}
                 removeCity={removeCity}

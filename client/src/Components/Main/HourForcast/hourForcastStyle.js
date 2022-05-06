@@ -11,7 +11,7 @@ export const useStyles = makeStyles((theme) => ({
     marginBottom: "1rem",
     padding: "1rem",
     overflow: "auto",
-    backgroundColor: theme.palette.sky,
+    backgroundColor: theme.palette.hour,
     color: theme.palette.text.primary,
     border: "2px solid #f2f2f1 ",
     "&::-webkit-scrollbar": {

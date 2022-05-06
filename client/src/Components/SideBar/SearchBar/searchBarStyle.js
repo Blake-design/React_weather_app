@@ -5,7 +5,7 @@ export const useStyles = makeStyles((theme) => ({
     "& > *": {
       margin: theme.spacing(1),
       width: "80%",
+      color: theme.palette.text.primary,
     },
-    color: theme.palette.text.primary,
   },
 }));

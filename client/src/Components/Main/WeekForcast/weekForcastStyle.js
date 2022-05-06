@@ -10,7 +10,7 @@ export const useStyles = makeStyles((theme) => ({
   card: {
     margin: ".5rem",
     width: 120,
-    backgroundColor: theme.palette.background,
+    backgroundColor: theme.palette.week,
     color: theme.palette.text.primary,
   },
   title: {
