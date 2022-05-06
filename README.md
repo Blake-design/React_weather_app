@@ -7,9 +7,6 @@
 <!-- PROJECT LOGO -->
 <br />
 <div style= "text-align:center">
-  <a href="https://github.com/Blake-design/React_weather_app">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
 
 <h3 style= "text-align:center">React Weather App</h3>
 
