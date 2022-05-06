@@ -4,6 +4,7 @@ export const useStyles = makeStyles((theme) => ({
   root: {
     justifyContent: "flex-start",
     alignItems: "flex-start",
+    flexFlow: "row",
     maxWidth: "100%",
     marginTop: "1rem",
     marginLeft: "1rem",
@@ -12,6 +13,10 @@ export const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.primary,
     padding: ".5rem",
     borderRadius: "10px",
+    [theme.breakpoints.only("xs")]: {
+      margin: 0,
+      borderRadius: "0px",
+    },
   },
   city: {
     display: "flex",
@@ -19,7 +24,6 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: "flex-start",
     alignItems: "center",
     maxWidth: "100%",
-
     gap: "2rem",
   },
   frost: {
