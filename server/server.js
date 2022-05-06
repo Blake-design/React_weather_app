@@ -7,7 +7,7 @@ const app = express();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use("/images", express.static("images"));
+app.use("/", express.static("public"));
 app.use("/api", api);
 
 app.listen(PORT, () =>
