@@ -3,7 +3,7 @@ import { Header, Footer } from "../index";
 import { SideBar } from "../SideBar";
 import { Main } from "../Main";
 import { fetchWeather, fetchLocalData, fetchPhoto } from "../../api";
-
+import { LocalStorageGet, LocalStorageSet } from "../../Hooks";
 import {
   Container,
   Paper,
@@ -15,48 +15,27 @@ import { useStyles } from "./homeStyles";
 
 const Home = () => {
   const classes = useStyles();
-  const [weather, setWeather] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [location, setLocation] = useState(
-    JSON.parse(localStorage.getItem("last-location")) || "San Antonio, TX, USA"
-  );
+  const [weather, setWeather] = useState(null);
+  const [location, setLocation] = useState(LocalStorageGet("last-location"));
   const [photoData, setPhotoData] = useState({});
-  const [geo, setGeo] = useState(
-    JSON.parse(localStorage.getItem("last-geo")) || {
-      lat: 29.4246002,
-      lon: -98.4951405,
-    }
-  );
-  const [cities, setCities] = useState(
-    JSON.parse(localStorage.getItem("cities")) || [
-      {
-        name: "San Antonio, TX, USA",
-        lat: 29.4246002,
-        lon: -98.4951405,
-      },
-    ]
-  );
+  const [geo, setGeo] = useState(LocalStorageGet("last-geo"));
+  const [cities, setCities] = useState(LocalStorageGet("cities"));
 
   useEffect(() => {
-    console.log("useEffect  2");
-
-    fetchWeather(geo, setWeather, setLoading);
-    localStorage.setItem("last-geo", JSON.stringify(geo));
+    fetchWeather(geo).then(setWeather);
+    LocalStorageSet("last-location", geo);
   }, [geo]);
 
   useEffect(() => {
-    console.log("useEffect  3");
-    fetchPhoto(location, setPhotoData);
-    localStorage.setItem("last-location", JSON.stringify(location));
+    fetchPhoto(location).then(setPhotoData);
+    LocalStorageSet("last-location", location);
   }, [location]);
 
   useEffect(() => {
-    console.log("useEffect  4");
-    localStorage.setItem("cities", JSON.stringify(cities));
+    LocalStorageSet("cities", cities);
   }, [cities]);
 
   const search = async (e, query, setQuery) => {
-    console.log("search function ");
     e.preventDefault();
     const localData = await fetchLocalData(query);
     let {
@@ -83,58 +62,55 @@ const Home = () => {
   };
 
   const removeCity = (targetCity) => {
-    console.log("remove function ");
     const editedCities = cities.filter((object) => {
       return object.name !== targetCity;
     });
     setCities(editedCities);
-    localStorage.setItem("cities", JSON.stringify(cities));
+    LocalStorageSet("cities", cities);
   };
 
   const reloadCity = async (targetCity) => {
-    console.log("reload function ");
     setGeo({ lat: targetCity.lat, lon: targetCity.lon });
     setLocation(targetCity.name);
   };
-  console.log("render");
-  if (loading) {
-    return (
-      <Backdrop open={true} className={classes.backdrop}>
-        <CircularProgress color="inherit" />
-      </Backdrop>
-    );
-  } else
-    return (
-      <Container className={classes.root}>
-        <Grid container spacing={2}>
-          <Grid item xs={12} component="header">
-            <Header title={"Weather App"} />
-          </Grid>
-          <Grid item xs={12} md={3} component="aside">
-            <Paper className={classes.sidebar}>
-              <SideBar
-                handleSubmit={search}
-                removeCity={removeCity}
-                reloadCity={reloadCity}
-                cities={cities}
-              />
-            </Paper>
-          </Grid>
-          <Grid item xs={12} md={9} component="main">
-            <Paper className={classes.paper}>
+
+  return (
+    <Container className={classes.root}>
+      <Grid container spacing={2}>
+        <Grid item xs={12} component="header">
+          <Header title={"Weather App"} />
+        </Grid>
+        <Grid item xs={12} md={3} component="aside">
+          <Paper className={classes.sidebar}>
+            <SideBar
+              handleSubmit={search}
+              removeCity={removeCity}
+              reloadCity={reloadCity}
+              cities={cities}
+            />
+          </Paper>
+        </Grid>
+        <Grid item xs={12} md={9} component="main">
+          <Paper className={classes.paper}>
+            {weather ? (
               <Main
                 weather={weather}
                 location={location}
                 photoData={photoData}
               />
-            </Paper>
-          </Grid>
-          <Grid item xs={12}>
-            <Footer />
-          </Grid>
+            ) : (
+              <Backdrop open={true} className={classes.backdrop}>
+                <CircularProgress color="inherit" />
+              </Backdrop>
+            )}
+          </Paper>
         </Grid>
-      </Container>
-    );
+        <Grid item xs={12}>
+          <Footer />
+        </Grid>
+      </Grid>
+    </Container>
+  );
 };
 
 export default Home;

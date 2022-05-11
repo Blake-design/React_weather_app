@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { DarkModeState } from "./themes/themeHandler";
+import { DarkModeState } from "./Hooks/themeHandler";
 ReactDOM.render(
   <React.StrictMode>
     <DarkModeState>

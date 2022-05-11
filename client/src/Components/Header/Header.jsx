@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { darkModeContext } from "../../themes/themeHandler";
+import { darkModeContext } from "../../Hooks/themeHandler";
 import { Typography, Box, Container } from "@material-ui/core/";
 import { MaterialUISwitch, useStyles } from "./headerStyle";
 
