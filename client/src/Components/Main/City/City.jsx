@@ -5,7 +5,6 @@ import { Typography, Box, Grid } from "@material-ui/core";
 import { useStyles } from "./cityStyles";
 
 const City = ({ weather, location }) => {
-  console.log(weather);
   const classes = useStyles();
   const { min, max } = weather.daily[0].temp;
   const { temp } = weather.current;

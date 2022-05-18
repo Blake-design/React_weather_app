@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Header, Footer } from "../index";
-import { SideBar } from "../SideBar";
+import { Search } from "../SideBar";
 import { Main } from "../Main";
-import { fetchWeather, fetchLocalData, fetchPhoto } from "../../api";
+import { fetchOpenWeather, fetchLocalData, fetchPhoto } from "../../api";
 import { LocalStorageGet, LocalStorageSet } from "../../Hooks";
 import {
   Container,
@@ -16,14 +16,15 @@ import { useStyles } from "./homeStyles";
 const Home = () => {
   const classes = useStyles();
   const [weather, setWeather] = useState(null);
+  const [pollution, setPollution] = useState(null);
   const [location, setLocation] = useState(LocalStorageGet("last-location"));
   const [photoData, setPhotoData] = useState({});
   const [geo, setGeo] = useState(LocalStorageGet("last-geo"));
   const [cities, setCities] = useState(LocalStorageGet("cities"));
 
   useEffect(() => {
-    fetchWeather(geo).then(setWeather);
-    LocalStorageSet("last-location", geo);
+    fetchOpenWeather(geo, "weather").then(setWeather);
+    fetchOpenWeather(geo, "pollution").then(setPollution);
   }, [geo]);
 
   useEffect(() => {
@@ -82,7 +83,7 @@ const Home = () => {
         </Grid>
         <Grid item xs={12} md={3} component="aside">
           <Paper className={classes.sidebar}>
-            <SideBar
+            <Search
               handleSubmit={search}
               removeCity={removeCity}
               reloadCity={reloadCity}
@@ -97,6 +98,7 @@ const Home = () => {
                 weather={weather}
                 location={location}
                 photoData={photoData}
+                pollution={pollution}
               />
             ) : (
               <Backdrop open={true} className={classes.backdrop}>

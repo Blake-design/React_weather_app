@@ -4,3 +4,4 @@ export { default as HourForcast } from "./HourForcast/HourForcast";
 export { default as WeekForecast } from "./WeekForcast/WeekForcast";
 export { default as City } from "./City/City";
 export { default as Caption } from "./Caption/Caption";
+export { default as AqiGraph } from "../Main/Pollution/AqiGraph";

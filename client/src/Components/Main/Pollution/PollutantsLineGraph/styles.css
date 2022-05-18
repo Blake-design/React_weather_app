@@ -1,0 +1,36 @@
+.tick line {
+  stroke: gray;
+}
+
+.tick text {
+  text-anchor: middle;
+  fill: #635f5d;
+}
+
+.countryName {
+  text-anchor: end;
+  fill: #635f5d;
+  font-size: 0.7em;
+}
+
+.mark path {
+  fill: none;
+  stroke: red;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.mark circle {
+  fill: gray;
+  opacity: 0.5;
+}
+
+.title {
+  text-anchor: middle;
+  font-size: 1em;
+}
+
+.x-title {
+  text-anchor: middle;
+  font-size: 0.8em;
+}

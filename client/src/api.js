@@ -1,14 +1,13 @@
 /// These are our internal APIs to transfer data so we can make calls to 3rd party API's from the server.
 
-import react, { useState } from "react";
-
 import axios from "axios";
 
 /// This will transfer data to our server so that we can make a call to Open Weather ///
+// * The call takes a query to call a specific open weather Api *//
 
-const fetchWeather = async (geo) => {
+const fetchOpenWeather = async (geo, query) => {
   try {
-    const res = await axios.get(`/api/weather?lat=${geo.lat}&lon=${geo.lon}`);
+    const res = await axios.get(`/api/${query}?lat=${geo.lat}&lon=${geo.lon}`);
     const data = await res.data;
     return data;
   } catch (err) {
@@ -49,4 +48,4 @@ const fetchPhoto = async (query) => {
   }
 };
 
-export { fetchWeather, fetchLocalData, fetchPhoto };
+export { fetchOpenWeather, fetchLocalData, fetchPhoto };

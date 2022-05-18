@@ -3,7 +3,6 @@ import { Typography, Container, Box } from "@material-ui/core";
 import { useStyles } from "./captionStyle";
 
 const Caption = ({ photoData }) => {
-  console.log({ photoData });
   const classes = useStyles();
   let { description, credit } = photoData;
 

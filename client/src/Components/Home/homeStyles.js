@@ -15,12 +15,7 @@ export const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.paper,
     color: theme.palette.text.primary,
   },
-  sidebar: {
-    padding: theme.spacing(3),
-    textAlign: "center",
-    backgroundColor: theme.palette.sidebar,
-    color: theme.palette.text.primary,
-  },
+
   backdrop: {
     zIndex: theme.zIndex.drawer + 1,
     color: "#fff",

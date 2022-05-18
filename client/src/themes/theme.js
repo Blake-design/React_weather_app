@@ -25,6 +25,7 @@ const lightTheme = createTheme({
     text: {
       link: "blue",
     },
+    graphBackground: "white",
   },
 });
 
@@ -32,7 +33,6 @@ const darkTheme = createTheme({
   ...baseTheme,
   palette: {
     mode: "dark",
-
     background: "#001324",
     sidebar: "#636d75",
     paper: "#424242",

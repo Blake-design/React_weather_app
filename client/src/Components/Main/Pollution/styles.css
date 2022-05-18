@@ -1,0 +1,11 @@
+rect title {
+  font-size: 1em;
+}
+.colorLegend-label {
+  font-size: 2em;
+  fill: #635f5d;
+}
+.legend-text {
+  fill: #635f5d;
+  cursor: default;
+}

@@ -26,4 +26,5 @@ function getTimeandDay() {
   const time = DateTime.now().toLocaleString(DateTime.TIME_SIMPLE);
   return `${day}, ${time}`;
 }
+
 export { getHour, getMeridian, getTimeandDay };
