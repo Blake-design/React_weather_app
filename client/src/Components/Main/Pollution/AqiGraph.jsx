@@ -42,6 +42,7 @@ const AqiGraph = ({ pollution }) => {
   }, [node]);
 
   useEffect(() => {
+    console.log(pollution);
     const dataCombined = pollution.list.map((i) => ({
       dt: i.dt * 1000,
       components: i.components,
@@ -49,7 +50,7 @@ const AqiGraph = ({ pollution }) => {
     }));
 
     setData(dataCombined);
-  }, [pollution.list]);
+  }, [pollution]);
 
   const height = 400;
   const margin = { top: 4, right: 60, bottom: 150, left: 100 };
@@ -76,9 +77,6 @@ const AqiGraph = ({ pollution }) => {
     };
     return valueName[domainValue];
   };
-
-  console.log(width);
-  console.log(node);
 
   return (
     <Box ref={measuredRef}>
